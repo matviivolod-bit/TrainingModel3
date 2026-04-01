@@ -1,0 +1,482 @@
+/* ===========================
+   RESET & BASE
+=========================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+/* ===========================
+   HEADER & NAV
+=========================== */
+header {
+  background-color: #2c3e50;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+nav ul li a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+nav ul li a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Hamburger — hidden on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ===========================
+   MAIN LAYOUT
+=========================== */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 60px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+section:last-child {
+  border-bottom: none;
+}
+
+h2 {
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* ===========================
+   ABOUT
+=========================== */
+#about p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  max-width: 600px;
+  margin-top: 10px;
+  letter-spacing: 0.01em;
+}
+
+/* ===========================
+   FILTER BAR
+=========================== */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.filter-btn {
+  padding: 7px 18px;
+  border: 2px solid #2c3e50;
+  border-radius: 20px;
+  background-color: #fff;
+  color: #2c3e50;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.filter-btn:hover {
+  background-color: #e8edf0;
+}
+
+.filter-btn.active {
+  background-color: #2c3e50;
+  color: #fff;
+}
+
+.no-results {
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+/* ===========================
+   PROJECTS
+=========================== */
+.projects-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+article {
+  flex: 1 1 250px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+}
+
+article.hidden {
+  display: none;
+}
+
+article figure {
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+article header {
+  position: static;
+  background: none;
+  color: inherit;
+  padding: 0;
+  z-index: 0;
+}
+
+.project-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  transition: transform 0.25s ease;
+  cursor: zoom-in;
+}
+
+.project-img:hover {
+  transform: scale(1.04);
+}
+
+article h3 {
+  font-size: 1.1rem;
+  margin: 14px 16px 6px;
+  color: #2c3e50;
+}
+
+article p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0 16px 10px;
+  flex-grow: 1;
+}
+
+article figcaption {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0 16px 16px;
+}
+
+/* ===========================
+   IMAGE MODAL
+=========================== */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+}
+
+.modal-content {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  max-width: 80%;
+  min-width: 400px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.modal-content img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.modal-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: #2c3e50;
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  background-color: #1a252f;
+}
+
+/* ===========================
+   SKILLS
+=========================== */
+.skills-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
+
+.skills-list li {
+  font-size: 1rem;
+  color: #444;
+  padding: 4px 0;
+}
+
+.skills-list li::before {
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+.skill-html::before   { content: "🌐"; }
+.skill-js::before     { content: "⚡"; }
+.skill-react::before  { content: "⚛️"; }
+.skill-node::before   { content: "🟩"; }
+.skill-git::before    { content: "🐙"; }
+.skill-python::before { content: "🐍"; }
+.skill-db::before     { content: "🗄️"; }
+
+/* ===========================
+   CONTACT FORM
+=========================== */
+.contact-intro {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 520px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+}
+
+input,
+textarea {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: Arial, sans-serif;
+  color: #333;
+  transition: border-color 0.2s;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2c3e50;
+}
+
+/* Error state — added by JS */
+input.error,
+textarea.error {
+  border-color: #c0392b;
+  background-color: #fff5f5;
+}
+
+.field-error {
+  font-size: 0.82rem;
+  color: #c0392b;
+  min-height: 18px;
+}
+
+textarea {
+  height: 130px;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  align-self: flex-start;
+  padding: 11px 28px;
+  background-color: #2c3e50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: #1a252f;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+  text-align: center;
+  padding: 24px 20px;
+  font-size: 0.85rem;
+  color: #999;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 20px;
+}
+
+/* ===========================
+   MEDIA QUERIES
+=========================== */
+
+/* Tablet — 768px and below */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background-color: #2c3e50;
+    padding: 16px 20px;
+  }
+
+  nav.open {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .projects-list {
+    flex-direction: column;
+  }
+
+  article {
+    flex: 1 1 100%;
+  }
+
+  /* Modal becomes full-width on small screens */
+  .modal-content {
+    min-width: unset;
+    max-width: 95%;
+    width: 95%;
+  }
+}
+
+/* Mobile — 480px and below */
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  section {
+    padding: 40px 0;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    text-align: center;
+  }
+
+  form {
+    max-width: 100%;
+  }
+
+  /* Modal: at least 80% width when screen < 500px */
+  .modal-content {
+    width: 80%;
+    min-width: unset;
+  }
+}

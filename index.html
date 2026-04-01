@@ -1,54 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matvii - Developer</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Website</h1>
-    </header>
-    
-    <main>
-        <section>
-            <h2>Main Content</h2>
-            <p>Your content goes here.</p>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; 2026 My Website. All rights reserved.</p>
-    </footer>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <span class="logo">Matvii</span>
+
+      <button class="hamburger" id="hamburger"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="nav-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="nav-menu" aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Hi! I'm Matvii, a junior web developer based in the US.
+        I enjoy building websites and learning new technologies.
+        I'm currently looking for my first professional role.
+      </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <!-- Filter buttons -->
+      <div class="filter-bar" role="group" aria-label="Filter projects by technology">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="html">HTML</button>
+        <button class="filter-btn" data-filter="css">CSS</button>
+        <button class="filter-btn" data-filter="javascript">JavaScript</button>
+      </div>
+
+      <p class="no-results" id="no-results" hidden>No projects match the selected filters.</p>
+
+      <div class="projects-list" id="projects-list">
+
+        <!-- Project 1: TaskFlow — React + CSS (no HTML tag, pure component) -->
+        <article data-tags="css">
+          <header>
+            <figure>
+              <img
+                src="https://picsum.photos/seed/weather/600/300"
+                alt="A tidy workspace representing the TaskFlow to-do app"
+                class="project-img"
+                data-full="https://picsum.photos/seed/weather/600/300"
+              />
+            </figure>
+            <h3>TaskFlow</h3>
+          </header>
+          <p>A simple to-do app where you can add, complete, and delete tasks. Built to practice React and component styling.</p>
+          <figcaption>Technologies: React, CSS</figcaption>
+        </article>
+
+        <!-- Project 2: WeatherNow — HTML + CSS + JavaScript -->
+        <article data-tags="html css javascript">
+          <header>
+            <figure>
+              <img
+                src="https://picsum.photos/id/256/600/300"
+                alt="A clear sky representing the WeatherNow forecast app"
+                class="project-img"
+                data-full="https://picsum.photos/id/256/600/300"
+              />
+            </figure>
+            <h3>WeatherNow</h3>
+          </header>
+          <p>A weather app that shows the current forecast for any city using the OpenWeatherMap API.</p>
+          <figcaption>Technologies: JavaScript, HTML, CSS, REST API</figcaption>
+        </article>
+
+        <!-- Project 3: DevLog API — JavaScript (Node.js, no HTML/CSS frontend) -->
+        <article data-tags="javascript">
+          <header>
+            <figure>
+              <img
+                src="https://picsum.photos/id/160/600/300"
+                alt="Books on a shelf representing the DevLog blog API project"
+                class="project-img"
+                data-full="https://picsum.photos/id/160/600/300"
+              />
+            </figure>
+            <h3>DevLog API</h3>
+          </header>
+          <p>A basic REST API for a personal blog. Supports creating, reading, and deleting posts stored in a database.</p>
+          <figcaption>Technologies: Node.js, Express, PostgreSQL</figcaption>
+        </article>
+
+        <!-- Project 4: Portfolio Page — HTML + CSS -->
+        <article data-tags="html css">
+          <header>
+            <figure>
+              <img
+                src="https://picsum.photos/id/20/600/300"
+                alt="A laptop on a desk representing a personal portfolio website"
+                class="project-img"
+                data-full="https://picsum.photos/id/20/600/300"
+              />
+            </figure>
+            <h3>Portfolio Site</h3>
+          </header>
+          <p>A personal portfolio website built from scratch using only HTML and CSS. Fully responsive with a clean layout.</p>
+          <figcaption>Technologies: HTML, CSS</figcaption>
+        </article>
+
+        <!-- Project 5: Quiz App — HTML + CSS + JavaScript -->
+        <article data-tags="html css javascript">
+          <header>
+            <figure>
+              <img
+                src="https://picsum.photos/id/48/600/300"
+                alt="A notebook with questions representing the Quiz App project"
+                class="project-img"
+                data-full="https://picsum.photos/id/48/600/300"
+              />
+            </figure>
+            <h3>Quiz App</h3>
+          </header>
+          <p>A multiple-choice quiz app with a score tracker and instant feedback. Questions are loaded from a local JSON file.</p>
+          <figcaption>Technologies: HTML, CSS, JavaScript</figcaption>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li class="skill-html">HTML &amp; CSS</li>
+        <li class="skill-js">JavaScript</li>
+        <li class="skill-react">React</li>
+        <li class="skill-node">Node.js &amp; Express</li>
+        <li class="skill-git">Git &amp; GitHub</li>
+        <li class="skill-python">Python</li>
+        <li class="skill-db">SQL / PostgreSQL</li>
+      </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="contact-intro">Interested in working together? Fill out the form below and I'll get back to you soon.</p>
+
+      <form id="contact-form" action="#" method="post" aria-label="Collaboration request form" novalidate>
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name"
+            autocomplete="name"
+            aria-required="true"
+            aria-describedby="name-error"
+          />
+          <span class="field-error" id="name-error" role="alert"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="your@email.com"
+            autocomplete="email"
+            aria-required="true"
+            aria-describedby="email-error"
+          />
+          <span class="field-error" id="email-error" role="alert"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Collaboration Request</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Tell me about your project or idea..."
+            aria-required="true"
+            aria-describedby="message-error"
+          ></textarea>
+          <span class="field-error" id="message-error" role="alert"></span>
+        </div>
+
+        <button type="submit">Send Message</button>
+
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Matvii. All rights reserved.</p>
+  </footer>
+
+  <!-- IMAGE MODAL -->
+  <div id="img-modal" class="modal" role="dialog" aria-modal="true" aria-label="Project image preview" hidden>
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Close image preview">&times;</button>
+      <img src="" alt="" id="modal-img" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
 </body>
 </html>
